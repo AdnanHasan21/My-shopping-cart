@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Welcome to ADN Gadget & Accessories</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div id="login-area">
+         <h1 class="text-center">Welcome to ADN Gadget & Accessories</h1>
+         <div class="submit-area">
+             <h4>Login</h4>
+             <input type="text" class="form-control" placeholder="Enter your E-mail here">
+             <br>
+             <input type="password" name="" id="" class="form-control" placeholder="Enter your password">
+             <br>
+             <button class="btn btn-success" id="login" >Enter</button>
+         </div>
+     </div>
+ 
+      <div id="total-cart">
+         <div class="container">
+            <div class="cart">
+               <div class="col-md-12 col-lg-10 mx-auto">
+                  <div class="cart-item">
+                     <div class="row">
+                        <div class="col-md-7 center-item">
+                           <img src="images/product-1.png" alt="">
+                           <h5>iPhone 11 128GB Black</h5>
+                        </div>
+   
+                        <div class="col-md-5 center-item">
+                           <div class="input-group number-spinner">
+                              <button id="minus1st"class="btn btn-default"><i class="fas fa-minus"></i></button>
+                              <input id="value1st" type="text" class="form-control text-center" value="1">
+                              <button id="plus1st" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           </div>
+                           <h5>$ <span id="phonePrice">1219</span></h5>
+                           <img src="images/remove.png" alt="" class="remove-item">
+                        </div>
+                     </div>
+                  </div>
+   
+                  <div class="cart-item">
+                     <div class="row">
+                        <div class="col-md-7 center-item mx-auto">
+                           <img src="images/product-2.png" alt="">
+                           <h5>iPhone 11 Silicone Case - Black</h5>
+                        </div>
+                        <div class="col-md-5 center-item">
+                           <div class="input-group number-spinner">
+                              <button id="minus2nd" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                              <input id="value2nd" type="text" class="form-control text-center" value="1">
+                              <button id="plus2nd" class="btn btn-default"><i class="fas fa-plus"></i></button>
+   
+                           </div>
+                           <h5>$ <span id="phonePrice2">59</span> </h5>
+                           <img src="images/remove.png" alt="" class="remove-item">
+                        </div>
+                     </div>
+                  </div>
+   
+                  <div class="cart-item">
+                     <div class="row">
+   
+                        <div class="col-md-8">
+                           <h5>Subtotal: </h5>
+                           <h5>Tax:</h5>
+                           <h5>Total:</h5>
+                        </div>
+   
+                        <div class="col-md-4 status">
+                           <h5>$ <span id="subTotal">1,278</span> </h5>
+                           <h5>$0</h5>
+                           <h5>$ <span id="netTotal">1,278</span> </h5>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-12 pt-4 pb-4">
+                     <button type="button" class="btn btn-success check-out">Check Out</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   
+   <script>
+
+      //Form to cart page
+      const loginBtn = document.getElementById("login");
+        loginBtn.addEventListener("click", function(){
+
+        const loginArea = document.getElementById("login-area");
+        loginArea.style.display = "none";
+        const cartArea = document.getElementById("total-cart");
+        cartArea.style.display = "block";
+      })
+
+      // 1st plus button with sub & net total
+      const plusBtn = document.getElementById("plus1st");
+      plusBtn.addEventListener("click", function(){
+         const getvalue1st = document.getElementById("value1st").value++;
+         const phonePrice = document.getElementById("phonePrice").innerText;
+         const phonePriceAmount = parseFloat(phonePrice);
+         const phonePriceTotal = phonePriceAmount + 1219;
+
+         document.getElementById("phonePrice").innerText = phonePriceTotal;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const subPrice = parseFloat(subTotal);
+         const subTotalAmount = subPrice + 1219 ;
+
+         document.getElementById("subTotal").innerText = subTotalAmount;
+         document.getElementById("netTotal").innerText = subTotalAmount;
+      })
+
+      // 1st minus button with sub & net total
+      const minusBtn = document.getElementById("minus1st");
+      minusBtn.addEventListener("click", function(){
+
+         const getvalue1st = document.getElementById("value1st")
+
+         if( value1st.value <=0 && minusValue <= 0){
+            minsusValue = 0;
+            value1st.value = 0;
+         }
+         else {
+            value1st.value--;
+         };
+         const phonePrice = document.getElementById("phonePrice").innerText;
+         const phonePriceAmount2 = parseFloat(phonePrice);
+         const phonePriceTotal2 = phonePriceAmount2 - 1219;
+
+         document.getElementById("phonePrice").innerText = phonePriceTotal2;
+
+         const subTotal2 = document.getElementById("subTotal").innerText;
+         const subPrice2 = parseFloat(subTotal2);
+         const subTotalAmount2 = subPrice2 -1219;
+
+         document.getElementById("subTotal").innerText = subTotalAmount2;
+         document.getElementById("netTotal").innerText = subTotalAmount2;
+      })
+
+      // 2nd plus button with sub & net total
+      const plusBtn2 = document.getElementById("plus2nd");
+      plusBtn2.addEventListener("click", function(){
+         const getvalue2nd = document.getElementById("value2nd").value++;
+         const phonePrice2 = document.getElementById("phonePrice2").innerText;
+         const phonePriceAmount3 = parseFloat(phonePrice2);
+         const phonePriceTotal3 = phonePriceAmount3 + 59;
+
+         document.getElementById("phonePrice2").innerText = phonePriceTotal3;
+
+         const subTotal3 = document.getElementById("subTotal").innerText;
+         const subPrice3 = parseFloat(subTotal3);
+         const subTotalAmount3 = subPrice3 + 59;
+
+         document.getElementById("subTotal").innerText = subTotalAmount3;
+         document.getElementById("netTotal").innerText = subTotalAmount3;
+      })
+
+      // 2nd minus button with sub & net total
+      const minusBtn2 = document.getElementById("minus2nd");
+      minusBtn2.addEventListener("click", function(){
+         const getvalue2nd = document.getElementById("value2nd")
+         if( value2nd.value <=0 && minusValue2 <= 0){
+            minsusValue2 = 0;
+            value2nd.value = 0;
+         }
+         else {
+            value2nd.value--;
+         };
+         const phonePrice2 = document.getElementById("phonePrice2").innerText;
+         const phonePriceAmount4 = parseFloat(phonePrice2);
+         const phonePriceTotal4 = phonePriceAmount4 - 59;
+
+         document.getElementById("phonePrice").innerText = phonePriceTotal4;
+
+         const subTotal4 = document.getElementById("subTotal").innerText;
+         const subPrice4 = parseFloat(subTotal4);
+         const subTotalAmount4 = subPrice4 -59;
+
+         document.getElementById("subTotal").innerText = subTotalAmount4;
+         document.getElementById("netTotal").innerText = subTotalAmount4;
+      })
+
+   </script>
+</body>
+
+</html>
